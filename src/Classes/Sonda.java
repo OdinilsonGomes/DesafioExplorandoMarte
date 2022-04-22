@@ -55,10 +55,14 @@ public class Sonda implements sondaAcao{
             System.err.println("O Comando inserido não é valido!");
             return false;
         } else if(tipo.equals("M")){
-            if(this.polo.equals("N"))this.y++;            
-            if(this.polo.equals("E"))this.x++;
-            if(this.polo.equals("S"))this.y--;
-            if(this.polo.equals("W"))this.x--;
+            // Apontando para o norte a sonda nao pode ultrapassar o comprimento do planalto
+            if(this.polo.equals("N"))if((this.x+1)<=Planalto.comprimento) this.y++; else System.err.println("A Sonda se encontra no limite do Planalto á:"+this.polo);
+            // Apontando para o Sul a Sonda nao pode ultrapassar o ponto zero pois é o ponto onde começa o planalto
+            if(this.polo.equals("S")) if((this.y-1)>=0) this.y--; else System.err.println("A Sonda se encontra no limite do Planalto á:"+this.polo);
+            // Apontando para o Este a coodenada da sonda nao pode exceder a cordenada corespondente a largura do planalto
+            if(this.polo.equals("E"))if((this.x+1)<=Planalto.largura) this.x++; else System.err.println("A Sonda se encontra no limite do Planalto á:"+this.polo);
+            // Apontando para o West a Sonda nao pode ultrapaçar o ponto 0, pois é o ponto inicial da coordenada do planalto 
+            if(this.polo.equals("W")) if((this.x-1)>=0) this.x--; else System.err.println("A Sonda se encontra no limite do Planalto á:"+this.polo);
             return true;
          }else{
             this.x=x;
