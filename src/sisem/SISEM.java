@@ -77,16 +77,18 @@ public class SISEM {
     }
     
     public static  void instrucao_sonda(){
-        boolean instrucao_valida=false;
+        boolean instrucao_valida;
+        String comandos_aceites="MLRPXH",a;
         do{
+            instrucao_valida=true;
             System.out.println("Digite as Instruções da "+(numero_sonda+1)*1+"ª Sonda, Ex: MLRMLR");
             // lendo as Instruçoes da sonda
             comando_digitado=Ler_comando(linha);
             // Verificando se a Instruçaõ contem todos os caracteres aceitaveis
             for(int i=0;i<comando_digitado.length();i++){
-                String a=comando_digitado.charAt(i)+"";
-                if((a.equals("L") || a.equals("M") || a.equals("R")))
-                instrucao_valida=false;
+                a=comando_digitado.charAt(i)+"";
+                if(!comandos_aceites.contains(a))
+                 instrucao_valida=false;
             }
             if(instrucao_valida)
             for(int i=0;i<comando_digitado.length();i++){
