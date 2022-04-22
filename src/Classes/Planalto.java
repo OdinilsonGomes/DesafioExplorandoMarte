@@ -11,16 +11,14 @@ import java.util.ArrayList;
  *
  * @author DELL14
  */
-public class Planalto {
-    public static int comprimento;
-    public static int largura;
-    private int malha=comprimento;    
+public class Planalto extends Retangulo{
+
     public static ArrayList<Sonda> sonda= new ArrayList <Sonda>();
     
     
     public Planalto(int largura, int comprimento) {
             if(largura==comprimento){
-                System.err.println("Esse Sistema coriosamente só permite planalto retangular");
+                System.err.println("Esse Sistema curiosamente só permite planalto retangular");
             }else{
             this.comprimento = comprimento;
             this.largura = largura;
@@ -33,34 +31,5 @@ public class Planalto {
         this.comprimento=0;
         
     }
-
-    
-    
-    public int getComprimento() {
-        return comprimento;
-    }
-
-    public int getLargura() {
-        return largura;
-    }
-
-    public int getMalha() {
-        return malha;
-    }
-
-    public void setComprimento(int comprimento) {
-        this.comprimento = comprimento;
-    }
-
-    public void setLargura(int largura) {
-        this.largura = largura;
-    }
-
-    public void setMalha(int malha) {
-        this.malha = malha;
-    }
-
-
-
 
 }

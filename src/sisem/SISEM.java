@@ -26,13 +26,14 @@ public class SISEM {
             y_padrao=0;
     static String polo_padrao="N",
                comando_digitado;
+    static String sms_apoio="Centro de Apoio \n H - Ajuda \n P - Imprimir os resultados \n X - Sair \n ";
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner ler =new Scanner(System.in);
         String comandos="XHI",ler_comando;
        
         
-        System.out.println("Bem vindo ao Sistema \n Centro de Apoio \n H - Ajuda \n X - Sair \n --------------");
+        System.out.println("Bem vindo ao Sistema \n"+sms_apoio);
         
         if(criar_planalto())        
             criar_sonda();
@@ -108,7 +109,7 @@ public class SISEM {
         criar_sonda();
     }
     public static void imprimir_resultado() {
-        System.out.println("Planalto é :"+ planalto.getLargura()+","+planalto.getComprimento());
+        System.out.println("Planalto: "+ planalto.getLargura()+" "+planalto.getComprimento());
         for(int i=0;i<numero_sonda;i++){
            System.out.println("Sonda na Posição "+planalto.sonda.get(i).getX()+" "+planalto.sonda.get(i).getY()+" "+planalto.sonda.get(i).getPolo()); 
         }
@@ -116,10 +117,9 @@ public class SISEM {
     }
     
  public static String Ler_comando(int linha){
-     
-     String sms="";linha++;
+     // Incrementando Linha 
+     linha++;
 
-     System.out.println(sms);
      Scanner ler =new Scanner(System.in);
      comando_digitado=ler.nextLine();
      if(comando_digitado.equals("X")){
@@ -131,7 +131,7 @@ public class SISEM {
          System.exit(0);
          return "";
      }else if(comando_digitado.equals("H")){
-         System.out.println("Centro de Apoio \n H - Ajuda \n P - Imprimir os resultados \n X - Sair \n --------------");
+         System.out.println(sms_apoio);
         return Ler_comando(linha);
      }else{
          return comando_digitado;
