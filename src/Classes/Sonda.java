@@ -36,7 +36,7 @@ public class Sonda implements sondaAcao{
             return true;
         }
         else{
-            System.out.println("Não é possivel girar a Sonda de acordo com as coordenadas");
+            System.err.println("Não é possivel girar a Sonda de acordo com as coordenadas");
             return false;
         }
             
@@ -46,13 +46,13 @@ public class Sonda implements sondaAcao{
     public boolean mover(int x, int y, String tipo) {
         String caracter ="MNEWS";
         if(x>Planalto.largura){
-            System.out.println("Largura(x) superior a do planalto! Por favor tente com uma coordenada menor");
+            System.err.println("Largura(x) superior a do planalto! Por favor tente com uma coordenada menor");
             return false;
         }else if(y>Planalto.comprimento){
-            System.out.println("Comprimento(y) superior a do planalto! Por favor tente com uma coordenada menor");
+            System.err.println("Comprimento(y) superior a do planalto! Por favor tente com uma coordenada menor");
             return false;
         }else if(!caracter.contains(tipo)){
-            System.out.println("O Comando inserido não é valido!");
+            System.err.println("O Comando inserido não é valido!");
             return false;
         } else if(tipo.equals("M")){
             if(this.polo.equals("N"))this.y++;            

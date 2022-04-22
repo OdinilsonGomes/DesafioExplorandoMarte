@@ -81,7 +81,14 @@ public class SISEM {
         do{
             System.out.println("Digite as Instruções da "+(numero_sonda+1)*1+"ª Sonda, Ex: MLRMLR");
             // lendo as Instruçoes da sonda
-            comando_digitado=Ler_comando(linha); 
+            comando_digitado=Ler_comando(linha);
+            // Verificando se a Instruçaõ contem todos os caracteres aceitaveis
+            for(int i=0;i<comando_digitado.length();i++){
+                String a=comando_digitado.charAt(i)+"";
+                if((a.equals("L") || a.equals("M") || a.equals("R")))
+                instrucao_valida=false;
+            }
+            if(instrucao_valida)
             for(int i=0;i<comando_digitado.length();i++){
                 String instrucao_sonda=""+comando_digitado.charAt(i);
                 switch(instrucao_sonda){ 
@@ -94,8 +101,12 @@ public class SISEM {
                     case "M":
                         instrucao_valida=planalto.sonda.get(numero_sonda).mover(0, 0, instrucao_sonda);
                     break;
-                    }
+                    default:
+                        System.err.println(comando_digitado.charAt(i)+" Instrução não reconhecida");
                 }
+            }
+            else
+                System.err.println("A instrução contêm caracteres não reconhecidos");
         }while(!instrucao_valida);
             
         linha--;
@@ -105,7 +116,7 @@ public class SISEM {
     public static void imprimir_resultado() {
         System.out.println("Planalto: "+ planalto.getLargura()+" "+planalto.getComprimento());
         for(int i=0;i<numero_sonda;i++){
-           System.out.println(i+"ª Sonda "+planalto.sonda.get(i).getX()+" "+planalto.sonda.get(i).getY()+" "+planalto.sonda.get(i).getPolo()); 
+           System.out.println((i+1)+"ª Sonda "+planalto.sonda.get(i).getX()+" "+planalto.sonda.get(i).getY()+" "+planalto.sonda.get(i).getPolo()); 
         }
         
     }
