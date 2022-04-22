@@ -56,7 +56,7 @@ public class Sonda implements sondaAcao{
             return false;
         } else if(tipo.equals("M")){
             // Apontando para o norte a sonda nao pode ultrapassar o comprimento do planalto
-            if(this.polo.equals("N"))if((this.x+1)<=Planalto.comprimento) this.y++; else System.err.println("A Sonda se encontra no limite do Planalto á:"+this.polo);
+            if(this.polo.equals("N"))if((this.y+1)<=Planalto.comprimento) this.y++; else System.err.println("A Sonda se encontra no limite do Planalto á:"+this.polo);
             // Apontando para o Sul a Sonda nao pode ultrapassar o ponto zero pois é o ponto onde começa o planalto
             if(this.polo.equals("S")) if((this.y-1)>=0) this.y--; else System.err.println("A Sonda se encontra no limite do Planalto á:"+this.polo);
             // Apontando para o Este a coodenada da sonda nao pode exceder a cordenada corespondente a largura do planalto
