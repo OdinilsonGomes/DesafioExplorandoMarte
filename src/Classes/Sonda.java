@@ -45,11 +45,11 @@ public class Sonda implements sondaAcao{
     @Override
     public boolean mover(int x, int y, String tipo) {
         String caracter ="MNEWS";
-        if(x>Planalto.largura){
-            System.err.println("Largura(x) superior a do planalto! Por favor tente com uma coordenada menor");
+        if(x>Planalto.largura || x<0){
+            System.err.println("Largura(x) superior ao Limite do planalto! Digite uma coordenada entre 0-"+Planalto.largura);
             return false;
-        }else if(y>Planalto.comprimento){
-            System.err.println("Comprimento(y) superior a do planalto! Por favor tente com uma coordenada menor");
+        }else if(y>Planalto.comprimento || y<0){
+            System.err.println("Comprimento(y) superior ao Limite do planalto! Digite uma coordenada entre 0-"+Planalto.comprimento);
             return false;
         }else if(!caracter.contains(tipo)){
             System.err.println("O Comando inserido não é valido!");

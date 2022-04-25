@@ -19,6 +19,8 @@ public class Planalto extends Retangulo{
     public Planalto(int largura, int comprimento) {
         if(largura==comprimento){
             System.err.println("Esse Sistema curiosamente só permite planalto retangular");
+        }else if(largura <= 0 || comprimento <=0){
+            System.err.println("A coordenada do Planato deve ser superior a zero");
         }else{
             this.comprimento = comprimento;
             this.largura = largura;
